@@ -4,6 +4,7 @@ import {
   ArrowUpRight,
   Award,
   Check,
+  Copy,
   Mail,
   Menu,
   Send,
@@ -60,6 +61,7 @@ const soloProjects = [
     kicker: "Clinical intelligence / 2026",
     text: "An agentic clinical intelligence platform that turns fragmented prescriptions and patient records into verified, searchable context for clinicians.",
     impact: "Domain winner · GLITCHCON 2.0",
+    pipeline: ["Prescription OCR", "Ingestion Agent", "pgvector RAG", "Sarvam Voice"],
     stack: ["Next.js", "Node.js", "Gemini Vision", "pgvector", "RAG"],
     link: "https://github.com/Meghs21/ClinSight-AI-Production",
     demo: "https://lnkd.in/p/gmbUzREf",
@@ -179,6 +181,13 @@ export default function App() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("meghnamandawra@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const visible = useMemo(
     () => (filter === "all" ? soloProjects : soloProjects.filter((p) => p.id === filter)),
@@ -418,6 +427,19 @@ export default function App() {
                   <Check size={14} />
                   <span>{project.impact}</span>
                 </div>
+                {project.pipeline && (
+                  <div className="mini-pipeline">
+                    <span className="pipeline-label">PIPELINE ARCHITECTURE</span>
+                    <div className="pipeline-steps">
+                      {project.pipeline.map((step, i) => (
+                        <React.Fragment key={step}>
+                          <span className="pipeline-step">{step}</span>
+                          {i < project.pipeline.length - 1 && <span className="pipeline-arrow">→</span>}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 <div className="tag-row">
                   {project.stack.map((tag) => (
                     <span key={tag}>{tag}</span>
@@ -552,6 +574,31 @@ export default function App() {
                   Automated online store management via a natural-language WooCommerce layer with a confirmation-token and audit-logging safeguard that reduced unintended store mutations to zero.
                 </li>
               </ul>
+
+              <div className="exp-architecture">
+                <span className="arch-flow-title">AGENTIC WORKFLOW PIPELINE</span>
+                <div className="arch-steps">
+                  <div className="arch-step">
+                    <span className="arch-step-num">01</span>
+                    <span className="arch-step-text">User Intent</span>
+                  </div>
+                  <span className="arch-arrow">→</span>
+                  <div className="arch-step">
+                    <span className="arch-step-num">02</span>
+                    <span className="arch-step-text">Dual-Layer Parser</span>
+                  </div>
+                  <span className="arch-arrow">→</span>
+                  <div className="arch-step highlight">
+                    <span className="arch-step-num">03</span>
+                    <span className="arch-step-text">LangGraph Router</span>
+                  </div>
+                  <span className="arch-arrow">→</span>
+                  <div className="arch-step">
+                    <span className="arch-step-num">04</span>
+                    <span className="arch-step-text">Token Safeguard</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="exp-footer">
@@ -785,9 +832,22 @@ export default function App() {
               I’m always open to thoughtful work, ambitious teams, and conversations about building technology that matters.
             </p>
             <div className="contact-links">
-              <a href="mailto:meghnamandawra@gmail.com" data-testid="contact-email-link">
-                <Mail size={18} /> meghnamandawra@gmail.com
-              </a>
+              <div className="email-copy-wrap">
+                <a href="mailto:meghnamandawra@gmail.com" data-testid="contact-email-link">
+                  <Mail size={18} /> meghnamandawra@gmail.com
+                </a>
+                <button
+                  type="button"
+                  className="copy-email-btn"
+                  onClick={handleCopyEmail}
+                  aria-label="Copy email address"
+                  title="Copy email to clipboard"
+                  data-testid="copy-email-button"
+                >
+                  {copied ? <Check size={13} className="copied-check" /> : <Copy size={13} />}
+                  <span>{copied ? "Copied!" : "Copy"}</span>
+                </button>
+              </div>
               <a
                 href="https://www.linkedin.com/in/meghna-mandawra-b4083228b/"
                 target="_blank"

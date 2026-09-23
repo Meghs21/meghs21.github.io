@@ -519,6 +519,41 @@ pre {
   margin: 18px 0;
 }
 
+.mini-pipeline {
+  background: rgba(124, 228, 220, 0.04);
+  border: 1px solid rgba(124, 228, 220, 0.15);
+  padding: 10px 12px;
+  margin: 14px 0 16px;
+}
+
+.pipeline-label {
+  display: block;
+  font: 700 9px 'DM Mono';
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  margin-bottom: 6px;
+}
+
+.pipeline-steps {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font: 11px 'DM Mono';
+}
+
+.pipeline-step {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+.pipeline-arrow {
+  color: var(--cyan);
+  font-size: 11px;
+}
+
 .tag-row {
   display: flex;
   gap: 6px;
@@ -789,6 +824,59 @@ pre {
   font-size: 12px;
 }
 
+.exp-architecture {
+  background: rgba(17, 23, 24, 0.85);
+  border: 1px solid rgba(124, 228, 220, 0.18);
+  padding: 14px 16px;
+  margin: 16px 0 20px;
+  border-left: 2px solid var(--cyan);
+}
+
+.arch-flow-title {
+  display: block;
+  font: 700 9px 'DM Mono';
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  margin-bottom: 10px;
+}
+
+.arch-steps {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.arch-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  padding: 4px 8px;
+  font: 11px 'DM Mono';
+}
+
+.arch-step.highlight {
+  border-color: rgba(124, 228, 220, 0.4);
+  background: rgba(124, 228, 220, 0.08);
+}
+
+.arch-step-num {
+  color: var(--cyan);
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.arch-step-text {
+  color: var(--ink);
+}
+
+.arch-arrow {
+  color: var(--muted);
+  font-size: 12px;
+}
+
 .exp-footer {
   margin-top: auto;
   padding-top: 18px;
@@ -993,6 +1081,35 @@ pre {
 
 .contact-links svg {
   color: #237e76;
+}
+
+.email-copy-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.copy-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(35, 126, 118, 0.12);
+  border: 1px solid rgba(35, 126, 118, 0.35);
+  color: #173d39;
+  font: 600 11px 'DM Mono';
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all .2s;
+  border-radius: 2px;
+}
+
+.copy-email-btn:hover {
+  background: rgba(35, 126, 118, 0.22);
+  border-color: #237e76;
+}
+
+.copied-check {
+  color: #1b635c;
 }
 
 .contact-form {
