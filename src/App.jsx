@@ -66,6 +66,7 @@ const soloProjects = [
     stack: ["Next.js", "Node.js", "Gemini Vision", "pgvector", "RAG"],
     link: "https://github.com/Meghs21/ClinSight-AI-Production",
     demo: "https://lnkd.in/p/gmbUzREf",
+    image: "/clinsight.png",
     tone: "cyan",
     label: "RAG / VISION / GUARDRAILS"
   },
