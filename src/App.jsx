@@ -109,6 +109,7 @@ const soloProjects = [
     stack: ["Next.js", "Three.js", "Gemini", "Framer Motion"],
     link: "https://github.com/SinthanaPrabakaran/AI-Anatomy-Explorer",
     demo: "https://neuromap-ai-anatomy-explorer.vercel.app/",
+    image: "/neuromap.png",
     tone: "amber",
     label: "3D / GEMINI / INTERACTIVE"
   }
