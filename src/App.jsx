@@ -52,7 +52,7 @@ function Linkedin({ size = 18, ...props }) {
   );
 }
 
-const resumeUrl = "/resume.pdf";
+const resumeUrl = "./resume.pdf";
 
 const soloProjects = [
   {
@@ -66,7 +66,7 @@ const soloProjects = [
     stack: ["Next.js", "Node.js", "Gemini Vision", "pgvector", "RAG"],
     link: "https://github.com/Meghs21/ClinSight-AI-Production",
     demo: "https://lnkd.in/p/gmbUzREf",
-    image: "/clinsight.png",
+    image: "./clinsight.png",
     tone: "cyan",
     label: "RAG / VISION / GUARDRAILS"
   },
@@ -94,8 +94,8 @@ const soloProjects = [
     stack: ["React", "Node.js", "Groq", "Supabase"],
     link: "https://github.com/hardeeparekh/Capstone-project",
     demo: "https://worthwise-web.onrender.com/",
-    image: "/worthwise.png",
-    video: "/worthwise.mp4",
+    image: "./worthwise.png",
+    video: "./worthwise.mp4",
     tone: "lime",
     label: "FORECAST / SIMULATE / LEARN"
   },
@@ -109,7 +109,7 @@ const soloProjects = [
     stack: ["Next.js", "Three.js", "Gemini", "Framer Motion"],
     link: "https://github.com/SinthanaPrabakaran/AI-Anatomy-Explorer",
     demo: "https://neuromap-ai-anatomy-explorer.vercel.app/",
-    image: "/neuromap.png",
+    image: "./neuromap.png",
     tone: "amber",
     label: "3D / GEMINI / INTERACTIVE"
   }
