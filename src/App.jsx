@@ -7,6 +7,7 @@ import {
   Copy,
   Mail,
   Menu,
+  Play,
   Send,
   Trophy,
   X
@@ -92,6 +93,8 @@ const soloProjects = [
     stack: ["React", "Node.js", "Groq", "Supabase"],
     link: "https://github.com/hardeeparekh/Capstone-project",
     demo: "https://worthwise-web.onrender.com/",
+    image: "/worthwise.png",
+    video: "/worthwise.mp4",
     tone: "lime",
     label: "FORECAST / SIMULATE / LEARN"
   },
@@ -182,6 +185,7 @@ export default function App() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+  const [activeVideo, setActiveVideo] = useState(null);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("meghnamandawra@gmail.com");
@@ -463,6 +467,16 @@ export default function App() {
                     >
                       Live preview <ArrowUpRight size={13} />
                     </a>
+                  )}
+                  {project.video && (
+                    <button
+                      type="button"
+                      className="demo-video-btn"
+                      onClick={() => setActiveVideo({ title: project.title, url: project.video })}
+                      data-testid={`case-${project.id}-video-btn`}
+                    >
+                      <Play size={12} fill="currentColor" /> Watch demo
+                    </button>
                   )}
                 </div>
               </div>
@@ -940,6 +954,39 @@ export default function App() {
           Back to top ↑
         </a>
       </footer>
+
+      {activeVideo && (
+        <div
+          className="video-modal-backdrop"
+          onClick={() => setActiveVideo(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+            <div className="video-modal-header">
+              <span className="video-modal-title">{activeVideo.title} — Walkthrough</span>
+              <button
+                type="button"
+                className="video-modal-close"
+                onClick={() => setActiveVideo(null)}
+                aria-label="Close video"
+              >
+                <X size={18} />
+              </button>
+            </div>
+            <div className="video-modal-body">
+              <video
+                src={activeVideo.url}
+                controls
+                autoPlay
+                className="modal-video-element"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
